@@ -10,6 +10,6 @@ updates:
         patterns:
           - "*"
   - package-ecosystem: "gitsubmodule"
-    directory: "/conformance"
+    directory: "/"
     schedule:
       interval: "weekly"

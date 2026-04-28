@@ -42,3 +42,5 @@ jobs:
           context: ./conformance/distribution-spec/conformance
           platforms: linux/amd64
           tags: ghcr.io/spegel-org/test-images/conformance:${{ steps.prep.outputs.VERSION }}
+          sbom: false
+          provenance: false

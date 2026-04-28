@@ -1,0 +1,3 @@
+[submodule "conformance/distribution-spec"]
+	path = conformance/distribution-spec
+	url = https://github.com/opencontainers/distribution-spec.git

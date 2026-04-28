@@ -1,4 +1,0 @@
-[submodule "distribution-spec"]
-	path = distribution-spec
-	url = https://github.com/opencontainers/distribution-spec.git
-	shallow = true

@@ -44,9 +44,6 @@ jobs:
           username: ${{ github.repository_owner }}
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build kind node image
-        run: kind build node-image --image ghcr.io/spegel-org/test-images/kind-node:${{ matrix.version }} ${{ matrix.version }}
-      - name: Push image
-        uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f #v7.1.0
-        with:
-          push: true
-          tags: ghcr.io/spegel-org/test-images/kind-node:${{ matrix.version }}
+        run: |
+          kind build node-image --image ghcr.io/spegel-org/test-images/kind-node:${{ matrix.version }} ${{ matrix.version }}
+          docker push ghcr.io/spegel-org/test-images/kind-node:${{ matrix.version }}

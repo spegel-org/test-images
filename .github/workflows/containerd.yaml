@@ -50,3 +50,6 @@ jobs:
           build-args: CONTAINERD_VERSION=${{ matrix.version }}
           platforms: linux/amd64
           tags: ghcr.io/spegel-org/test-images/containerd:${{ matrix.version }}
+          labels: |
+            org.opencontainers.image.title=test-images/containerd
+            org.opencontainers.image.source=https://github.com/spegel-org/test-images/tree/main/containerd

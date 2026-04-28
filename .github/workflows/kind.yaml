@@ -21,7 +21,7 @@ jobs:
       - name: Get versions
         id: versions
         run: |
-          versions=$(cat kind/versions.yaml | yq '.versions | tojson')
+          versions=$(yq '.versions' kind/versions.yaml -o json | jq -c '.')
           echo "versions=$versions" >> $GITHUB_OUTPUT
   release:
     needs: versions

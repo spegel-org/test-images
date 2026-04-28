@@ -21,9 +21,13 @@ jobs:
       - name: Get versions
         id: versions
         run: |
-          versions=$(cat containerd/versions.yaml | yq '.versions | tojson')
+          versions=$(yq '.versions' containerd/versions.yaml -o json | jq -c '.')
           echo "versions=$versions" >> $GITHUB_OUTPUT
   release:
+    needs: versions
+    strategy:
+      matrix:
+        version: ${{ fromJson(needs.versions.outputs.versions) }}
     runs-on: ubuntu-latest
     steps:
       - name: Clone repo

@@ -49,4 +49,4 @@ jobs:
         uses: docker/build-push-action@bcafcacb16a39f128d818304e6c9c0c18556b85f #v7.1.0
         with:
           push: true
-          tags: ghcr.io/spegel-org/test-images/kind:${{ matrix.version }}
+          tags: ghcr.io/spegel-org/test-images/kind-node:${{ matrix.version }}

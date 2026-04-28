@@ -51,4 +51,4 @@ jobs:
           platforms: linux/amd64
           tags: ghcr.io/spegel-org/test-images/containerd:${{ matrix.version }}
           sbom: false
-          attestation: false
+          provenance: false

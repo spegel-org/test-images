@@ -52,3 +52,14 @@ jobs:
           tags: ghcr.io/spegel-org/test-images/containerd:${{ matrix.version }}
           sbom: false
           provenance: false
+  cleanup:
+    needs: release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete untagged images
+        uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 #v5.0.0
+        with:
+          package-name: "test-images/containerd"
+          package-type: "container"
+          min-versions-to-keep: 0
+          delete-only-untagged-versions: true

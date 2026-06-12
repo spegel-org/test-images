@@ -47,7 +47,7 @@ jobs:
           password: ${{ secrets.GITHUB_TOKEN }}
       - name: Build kind node image
         run: |
-          IMAGE=ghcr.io/spegel-org/test-images/kind-node:kind${{ env.KIND_VERSION }}-k8s${{ matrix.version }}
+          IMAGE=ghcr.io/spegel-org/test-images/kind-node:${{ env.KIND_VERSION }}-v${{ matrix.version }}
           kind build node-image --image $IMAGE ${{ matrix.version }}
           docker push $IMAGE
   cleanup:
@@ -55,7 +55,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Delete untagged images
-        uses: actions/delete-package-versions@v5
+        uses: actions/delete-package-versions@e5bc658cc4c965c472efe991f8beea3981499c55 #v5.0.0
         with:
           package-name: "test-images/kind-node"
           package-type: "container"

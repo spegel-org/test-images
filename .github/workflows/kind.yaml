@@ -30,7 +30,7 @@ jobs:
         version: ${{ fromJson(needs.versions.outputs.versions) }}
     runs-on: ubuntu-latest
     env:
-      KIND_VERSION: v0.32.0
+      KIND_VERSION: v0.33.0
     steps:
       - name: Clone repo
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 #v7.0.1
